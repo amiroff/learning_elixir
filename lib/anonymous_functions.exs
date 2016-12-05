@@ -10,3 +10,7 @@ f1.(5, 6)
 # No arguments function
 greet = fn -> IO.puts "Hello" end
 greet.() #parentheses are required even if no arguments are passed
+
+# We can use pattern matching with anon functions
+swap = fn {a, b} -> {b, a} end
+swap.({6, 8}) # {8, 6}
