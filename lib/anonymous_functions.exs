@@ -23,3 +23,15 @@ end
 
 handle_open.(File.open("hello.exs")) # Successfully read data
 handle_open.(File.open("404.exs")) # Error reading data
+
+# A function that takes three arguments. 
+# If the first two are zero, returns "FizzBuzz."
+# If the first is zero, returns "Fizz." If the second is zero, returns "Buzz." 
+# Otherwise returns the third argument. "
+
+fizbuz = fn 
+    0, 0, _ -> "FizzBuzz"
+    0, _, _ -> "Fizz"
+    _, 0, _ -> "Buzz"
+    _, _, n -> n
+end
