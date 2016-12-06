@@ -35,3 +35,13 @@ fizbuz = fn
     _, 0, _ -> "Buzz"
     _, _, n -> n
 end
+
+# functions can return functions
+fun1 = fn -> 
+    fn -> 
+        "Hello"
+    end 
+end
+
+fun2 = fun1.()
+fun2.() # Hello
