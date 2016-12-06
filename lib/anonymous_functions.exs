@@ -64,4 +64,15 @@ apply.(times_2, 6) # -> 12. # here we pass function just like a parameter
 # here we are passing anon function as a second argument to Enum.map
 Enum.map [1, 2, 3, 4], fn elem -> elem * 2 end # returns [2, 4, 6, 8]
 
+# using ^ operator is possible
+def for(name, greeting) do
+    fn 
+        (^name) -> "#{greeting} #{name}" # name must match the same at the time of definition
+        (_)     -> "I do not know you"
+    end
+end
+
+mr_valim = for("Jose", "Oi!")
+mr_valim.(Jose) # => Oi! Jose
+mr_valim.(Dave) # => I do not know you
 
