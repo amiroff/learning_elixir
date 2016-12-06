@@ -50,3 +50,8 @@ fun2.() # Hello
 greeter = fn name -> (fn -> "Hello #{name}" end) end
 dave_greeter = greeter.("Dave") # "Dave" no in scope of inner function
 dave_greeter.() # -> "Hello Dave"
+
+# parameterized Functions
+add_n = fn n -> (fn other -> n + other end) end
+add_two = add_n.(2) # This returns a function that gets one parameter and adds 2 to it
+add_two.(5) # -> 7
