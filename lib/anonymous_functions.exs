@@ -76,3 +76,20 @@ mr_valim = for("Jose", "Oi!")
 mr_valim.(Jose) # => Oi! Jose
 mr_valim.(Dave) # => I do not know you
 
+# & notation for anonymous functions
+# Here &1 and &2 and &n defines arguments in order.
+add_one = &(&1 + 1) # same as add_one = fn (n) -> n + 1 end
+square = &(&1 * &1)
+speak = &(IO.puts(&1))
+rnd = &(Float.round(&1, &2))
+
+# If we give & a name of function and its arity, it gives us anon function that calls it
+len = &Enum.count/1
+len.([1, 2, 3, 4]) # => 4
+
+# more examples with &
+Enum.map [1, 2, 3, 4], &(&1 + 1) # [2, 3, 4, 5]
+Enum.map [1, 2, 3, 4], &(&1 * &1) # [1, 2, 9, 16]
+Enum.map [1, 2, 3, 4], &(&1 < 3) # [true, true, false, false]
+
+
