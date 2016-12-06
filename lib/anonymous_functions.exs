@@ -55,3 +55,13 @@ dave_greeter.() # -> "Hello Dave"
 add_n = fn n -> (fn other -> n + other end) end
 add_two = add_n.(2) # This returns a function that gets one parameter and adds 2 to it
 add_two.(5) # -> 7
+
+# Passing functions as values is common
+times_2 = fn n -> n * 2 end
+apply = fn (fun, value) -> fun.(value) end
+apply.(times_2, 6) # -> 12. # here we pass function just like a parameter
+
+# here we are passing anon function as a second argument to Enum.map
+Enum.map [1, 2, 3, 4], fn elem -> elem * 2 end # returns [2, 4, 6, 8]
+
+
