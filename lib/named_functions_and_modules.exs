@@ -44,3 +44,23 @@ func("a", "b", "c") # => ["a", "b", 3, "c"]
 
 # number of params we are passing 4
 func("a", "b", "c", "d") # => ["a", "b", "c", "d"]
+
+# we can define private functions
+# these can be called within only the module that declares them
+defp private_fun do
+    "Som private text"
+end
+
+SomeModule.private_fun # => function cannot be called outside of module
+
+# The pipe |> operator takes the result of the expressin to its left and
+# inserts it as the first parameter of the function invocation to its right
+val |> f(a, b) # is equal to f(val, a, b)
+
+# if functions take parameters we should always use parentheses around them when using |>
+result = DB.find_customers
+            |> Orders.for_customers
+            |> sales_tax(2016)
+            |> prepare_filing
+
+(1..10) |> Enum.map(&(&1 * &2)) |> Enum.filter(&(&! < 40))
