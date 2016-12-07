@@ -24,3 +24,23 @@ def greet(greeting, name), do: (
 # Elixir tries functions from the top down, executing the first match
 def fact(0), do: 1
 def fact(n), do: n * fact(n-1)
+
+# we can define default values for paremeters using \\
+def greet(greeting, name \\ "World") do
+    "#{greeting} #{name}!"
+end
+
+# number of req parameters: 2
+def func(p1, p2 \\ 2, p3 \\ 3, p4) do
+    IO.inspect [p1, p2, p3, p4]
+end
+
+# number of params we are passing 2
+func("a", "b") # => ["a", 2, 3, "b"]
+
+# number of params we are passing 3
+# Elixir uses the excess to override the default values of some or all params
+func("a", "b", "c") # => ["a", "b", 3, "c"]
+
+# number of params we are passing 4
+func("a", "b", "c", "d") # => ["a", "b", "c", "d"]
