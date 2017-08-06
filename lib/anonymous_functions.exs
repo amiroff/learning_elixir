@@ -101,3 +101,9 @@ sum.(1, 2, 3) # 6
 
 tuple_to_list = fn {a, b} -> [a, b] end
 tuple_to_list.({123, 4567}) # [123, 4567]
+
+prefix_it = fn a -> (fn b -> a <> " " <> b end) end
+mr = prefix_it.("Mr.")
+mr.("Metin") # "Mr. Metin"
+
+Enum.each([1, 2, 3, 4], &IO.inspect/1) # prints/inspect each line
