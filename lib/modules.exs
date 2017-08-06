@@ -75,16 +75,16 @@ end
 defmodule Math do
   @moduledoc """
   Provides math-related functions.
+  """
+
+  @doc """
+  Calculates the sum of two numbers.
 
   ## Examples
 
       iex> Math.sum(1, 2)
       3
 
-  """
-
-  @doc """
-  Calculates the sum of two numbers.
   """
   def sum(a, b), do: a + b
 end 
@@ -101,5 +101,5 @@ defmodule Example do
     end
 end
 
-# we call Erlang modules with :
+# we can also call Erlang modules with :
 :io.format("The number is", [5.678])
