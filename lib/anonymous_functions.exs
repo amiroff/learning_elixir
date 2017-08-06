@@ -46,9 +46,9 @@ end
 fun2 = fun1.()
 fun2.() # Hello
 
-# functions carry with them the scope in whish they were defined
+# functions carry with them the scope in which they were defined
 greeter = fn name -> (fn -> "Hello #{name}" end) end
-dave_greeter = greeter.("Dave") # "Dave" no in scope of inner function
+dave_greeter = greeter.("Dave") # "Dave" now in scope of inner function
 dave_greeter.() # -> "Hello Dave"
 
 # parameterized Functions
