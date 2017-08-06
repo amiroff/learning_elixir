@@ -92,4 +92,12 @@ Enum.map [1, 2, 3, 4], &(&1 + 1) # [2, 3, 4, 5]
 Enum.map [1, 2, 3, 4], &(&1 * &1) # [1, 2, 9, 16]
 Enum.map [1, 2, 3, 4], &(&1 < 3) # [true, true, false, false]
 
+# even more examples
+list_concat = fn a, b -> a ++ b end
+list_concat.([:a, :b], [:c, :d]) # [:a, :b, :c, :d]
 
+sum = fn a, b, c -> a + b + c end
+sum.(1, 2, 3) # 6
+
+tuple_to_list = fn {a, b} -> [a, b] end
+tuple_to_list.({123, 4567}) # [123, 4567]
