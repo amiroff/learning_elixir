@@ -7,6 +7,9 @@ list = [1, 2, 3]
 [1] == [1 | []] # true
 [2 | [ 3 | [] ]] == [2, 3] # true
 
+# we can also put multiple values to left
+[ 1, 2, 3 | [ 4, 5, 6 ]]
+
 # concatenation
 [1, 2, 3] ++ [4, 5] # [1, 2, 3, 4, 5]
 
