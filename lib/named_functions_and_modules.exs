@@ -70,3 +70,23 @@ result = DB.find_customers
             |> prepare_filing
 
 (1..10) |> Enum.map(&(&1 * &2)) |> Enum.filter(&(&! < 40))
+
+# Example number guesser application:
+
+# The most efficient way to find the number is to guess halfway 
+# between the low and high numbers of the range. If our guess 
+# is too big, then the answer lies between the bottom of the 
+# range and one less than our guess. If our guess is too small, 
+# then the answer lies between one more than our guess and the end of the range.
+
+defmodule Chop do
+    def guess(num, min..max) do
+        guess = div(min + max, 2)
+        IO.puts("Is it #{guess}?")
+        give(num, guess)
+    end
+
+    defp give(num, guess) when guess < num, do: guess(num, guess+1..num)
+    defp give(num, guess) when guess > num, do: guess(num, guess-1..num)
+    defp give(num, guess) when num == guess, do: num
+end
