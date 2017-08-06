@@ -27,3 +27,6 @@ a = 2
 
 ^a = 1
 ^a = 2 - a # matches, a is still 1 (2-1)
+
+a = 1
+[a, _, _] = [1, 2, 3] # matches and ignores _
